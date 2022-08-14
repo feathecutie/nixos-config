@@ -30,5 +30,8 @@
           simple-scan
           gnome-calendar
         ]);
+      # Systray support
+      environment.systemPackages = [ pkgs.gnomeExtensions.appindicator ];
+      services.udev.packages = [ pkgs.gnome.gnome-settings-daemon ];
     };
 }
