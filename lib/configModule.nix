@@ -1,14 +1,24 @@
 { lib }:
 let
-  importedSets = map
-    (dir: import (../. + "/modules" + "/${dir}"))
-    (builtins.attrNames (builtins.readDir (../. + "/modules")));
-  systemModules = lib.catAttrs "system" importedSets;
-  userModules = lib.mapAttrs
-    (_: value: { imports = value; })
-    (lib.zipAttrs (lib.catAttrs "users" importedSets));
+  configModule = path:
+    let
+      imports = lib.mapAttrsToList
+        (name: type:
+          if type == "regular" then
+            let
+              imported = import (path + "/${name}");
+              systemModule = if imported ? "system" then { imports = [ imported.system ]; } else {};
+              userModules = if imported ? "users" then { home-manager.users = imported.users; } else {};
+            in
+              systemModule // userModules
+          else if type == "directory" then
+            configModule (path + "/${name}")
+          else
+            {})
+        (builtins.readDir path);
+    in
+    {
+      inherit imports;
+    };
 in
-{
-  imports = systemModules;
-  home-manager.users = userModules;
-}
+configModule
