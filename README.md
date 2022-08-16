@@ -7,7 +7,7 @@ This is the flake I use for configuring my main NixOS system on my laptop and ho
 This flake currently only exposes the NixOS configuration `laptop`.
 
 In order to rebuild your existing NixOS system using this configuration, run
-```
+```sh
 sudo nixos-rebuild switch --flake "github:feathecutie/nixos-config#laptop"
 ```
 or an equivalent command.
