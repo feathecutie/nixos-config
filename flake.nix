@@ -20,7 +20,7 @@
             system = system.x86_64-linux;
             modules = [
               home-manager.nixosModules.default
-              (configModule ./modules)
+              (customModule ./modules)
             ];
             specialArgs = { inherit inputs; };
           };

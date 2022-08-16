@@ -1,6 +1,6 @@
 { lib }:
 let
-  configModule = path:
+  customModule = path:
     let
       imports = lib.mapAttrsToList
         (name: type:
@@ -12,7 +12,7 @@ let
             in
               systemModule // userModules
           else if type == "directory" then
-            configModule (path + "/${name}")
+            customModule (path + "/${name}")
           else
             {})
         (builtins.readDir path);
@@ -21,4 +21,4 @@ let
       inherit imports;
     };
 in
-configModule
+customModule

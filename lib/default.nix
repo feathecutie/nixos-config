@@ -1,4 +1,4 @@
 args:
 {
-  configModule = import ./configModule.nix args;
+  customModule = import ./customModule.nix args;
 }
