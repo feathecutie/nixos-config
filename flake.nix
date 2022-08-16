@@ -13,7 +13,7 @@
         let
           inherit (nixpkgs.lib) nixosSystem;
           inherit (flake-utils.lib) system;
-          inherit (import ./lib { inherit (nixpkgs) lib; }) configModule;
+          inherit (import ./lib { inherit (nixpkgs) lib; }) customModule;
         in
         {
           laptop = nixosSystem {
