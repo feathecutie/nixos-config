@@ -20,5 +20,6 @@
           options = [ "subvol=root" ];
         };
       };
+      boot.supportedFilesystems = [ "ntfs" ];
     };
 }

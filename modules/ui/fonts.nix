@@ -1,24 +1,14 @@
 {
-  system =
-    { pkgs
-    , ...
-    }: {
-      fonts.fonts = [
-        (pkgs.nerdfonts.override { fonts = [
-          # "CascadiaCode"
-          "VictorMono"
-        ]; })
-      ];
-    };
+  # I currently only set the font directory for kitty
 
-  # users.fea =
+  # system =
   #   { pkgs
   #   , ...
   #   }: {
-  #     home.packages = [
-  #       (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+  #     fonts.fonts = [
+  #       (pkgs.nerdfonts.override { fonts = [
+  #         "VictorMono"
+  #       ]; })
   #     ];
-      
-  #     fonts.fontconfig.enable = true;
   #   };
 }

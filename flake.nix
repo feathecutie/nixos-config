@@ -50,5 +50,10 @@
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.flake-utils.follows = "flake-utils";
       };
+      # zig-overlay = {
+      #   url = "github:roarkanize/zig-overlay";
+      #   inputs.nixpkgs.follows = "nixpkgs";
+      #   inputs.flake-utils.follows = "flake-utils";
+      # };
     };
 }
