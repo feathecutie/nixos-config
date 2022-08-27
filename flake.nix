@@ -20,15 +20,18 @@
             system = system.x86_64-linux;
             modules = [
               home-manager.nixosModules.default
-              (customModule ./modules)
+              (customModule ./hosts/laptop)
             ];
             specialArgs = { inherit inputs; };
           };
-          # server = nixosSystem {
-          #   system = system.x86_64-linux;
-          #   modules = [
-          #   ];
-          # };
+          server = nixosSystem {
+            system = system.x86_64-linux;
+            modules = [
+                home-manager.nixosModules.default
+                (customModule ./hosts/server)
+            ];
+            specialArgs = { inherit inputs; };
+          };
         };
     };
 
@@ -49,6 +52,10 @@
         url = "github:jbuchermn/newm";
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.flake-utils.follows = "flake-utils";
+      };
+      helix = {
+        url = "github:helix-editor/helix";
+        inputs.nixpkgs.follows = "nixpkgs";
       };
       # zig-overlay = {
       #   url = "github:roarkanize/zig-overlay";

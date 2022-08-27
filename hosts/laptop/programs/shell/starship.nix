@@ -11,7 +11,7 @@
     {
       enable = true;
       settings = {
-        format = "[](${purple})$username[](bg:${pink} fg:${purple})$directory[](fg:${pink} bg:${orange})$git_branch$git_status[](fg:${orange} bg:${light_blue})$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust[](fg:${light_blue} bg:${cyan})$docker_context[](fg:${cyan} bg:${dark_blue})$time[ ](fg:${dark_blue})";
+        format = "[](${purple})$username[](bg:${pink} fg:${purple})$directory[](fg:${pink} bg:${orange})$git_branch$git_status[](fg:${orange} bg:${light_blue})$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust[](fg:${light_blue} bg:${cyan})$time[ ](fg:${cyan})";
         username = {
           show_always = true;
           style_user = "bg:${purple}";
@@ -34,11 +34,6 @@
           symbol = " ";
           style = "bg:${light_blue}";
           format = "[ $symbol ($version) ]($style)";
-        };
-        docker_context = {
-          symbol = " ";
-          style = "bg:${cyan}";
-          format = "[ $symbol $context ]($style) $path";
         };
         elixir = {
           symbol = " ";
@@ -97,7 +92,7 @@
         time = {
           disabled = false;
           time_format = "%R"; # Hour:Minute Format
-          style = "bg:${dark_blue}";
+          style = "bg:${cyan}";
           format = "[ ♥ $time ]($style)";
         };
       };

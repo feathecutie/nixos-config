@@ -4,7 +4,7 @@ let
     let
       imports = lib.mapAttrsToList
         (name: type:
-          if type == "regular" then
+          if type == "regular" && lib.hasSuffix ".nix" name then
             let
               imported = import (path + "/${name}");
               systemModule = if imported ? "system" then { imports = [ imported.system ]; } else {};
