@@ -29,12 +29,16 @@ The configuration also currently sets passwords for the existing users that I wo
 | `flake.nix` | Describes dependencies on other flakes ("inputs") and exposes structered configuration ("outputs"); this is essentially what makes this repository a "flake" |
 | `flake.lock` | Lock file enforcing specific versions/commits of all flake inputs |
 | `lib/` | Collection of nix functions interally used in this crate; currently not exposed via an output |
-| `modules/` | Collection of nix files that get parsed into a single NixOS module by the `customModule` function in `lib/customModule.nix` |
+| `hosts/` | Host-specific collections of nix files that get parsed into a single NixOS module per host by the `customModule` function in `lib/customModule.nix` |
 | `README.md` | ..self explanatory |
 
 ## Custom module structure
 
-`modules/` contains arbitrarily nested nix files where each nix file contains an attribute set with any of the following attributes:
+`hosts/` contains top-level directories representing the different hosts this flake is designed to be used on.
+
+Currently, `hosts/laptop/` generates a NixOS module for the `laptop` nixosConfiguration and, as soon as I port it over, `hosts/server/` generates a NixOS module for the (not yet existing) `server` nixosConfiguration.
+
+Each of these directories contains arbitrarily nested nix files where each nix file contains an attribute set with any of the following attributes:
 
 | Attribute | Explanation |
 | --- | --- |
