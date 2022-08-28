@@ -27,8 +27,8 @@
           server = nixosSystem {
             system = system.x86_64-linux;
             modules = [
-                home-manager.nixosModules.default
-                (customModule ./hosts/server)
+              home-manager.nixosModules.default
+              (customModule ./hosts/server)
             ];
             specialArgs = { inherit inputs; };
           };
@@ -48,33 +48,16 @@
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.utils.follows = "flake-utils";
       };
-      newm = {
-        url = "github:jbuchermn/newm";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.flake-utils.follows = "flake-utils";
-        inputs.pywmpkg.follows = "pywm";
-      };
-      # NOTE: This is a temporary fix to make newm's pywmpkg's flake-utils follow mine
-      pywm = {
-        url = "github:jbuchermn/pywm";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.flake-utils.follows = "flake-utils";
-      };
       helix = {
         url = "github:helix-editor/helix";
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.rust-overlay.follows = "rust-overlay";
       };
-      # NOTE: This is a temporary fix to make helix's rust-overlay's flake-utils follow mine
+      # NOTE: This is a (hopefully) temporary fix to make helix's rust-overlay's flake-utils follow mine
       rust-overlay = {
         url = "github:oxalica/rust-overlay";
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.flake-utils.follows = "flake-utils";
       };
-      # zig-overlay = {
-      #   url = "github:roarkanize/zig-overlay";
-      #   inputs.nixpkgs.follows = "nixpkgs";
-      #   inputs.flake-utils.follows = "flake-utils";
-      # };
     };
 }
