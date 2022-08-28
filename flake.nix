@@ -52,10 +52,24 @@
         url = "github:jbuchermn/newm";
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.flake-utils.follows = "flake-utils";
+        inputs.pywmpkg.follows = "pywm";
+      };
+      # NOTE: This is a temporary fix to make newm's pywmpkg's flake-utils follow mine
+      pywm = {
+        url = "github:jbuchermn/pywm";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.flake-utils.follows = "flake-utils";
       };
       helix = {
         url = "github:helix-editor/helix";
         inputs.nixpkgs.follows = "nixpkgs";
+        inputs.rust-overlay.follows = "rust-overlay";
+      };
+      # NOTE: This is a temporary fix to make helix's rust-overlay's flake-utils follow mine
+      rust-overlay = {
+        url = "github:oxalica/rust-overlay";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.flake-utils.follows = "flake-utils";
       };
       # zig-overlay = {
       #   url = "github:roarkanize/zig-overlay";
