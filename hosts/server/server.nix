@@ -68,7 +68,7 @@
       ]);
       
       services.openssh.enable = true;
-      services.mosh.enable = true;
+      programs.mosh.enable = true;
       
       system.stateVersion = "22.05";
     };
