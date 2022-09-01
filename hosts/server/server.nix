@@ -59,6 +59,7 @@
           isNormalUser = true;
           extraGroups = [ "wheel" ];
           hashedPassword = "$6$OxWfNGyataVKhzRS$Klaf9T3UFXg7uQ/Z7hh/1HhJWq.pslvIk3Raa.f7AiKv2jJuK1pZ..tFUkTzH3ZITSn5SoAyBZ23IFQn0I7oR1";
+          shell = pkgs.nushell;
         };
         users.root = {
           isSystemUser = true;
@@ -72,7 +73,5 @@
       
       services.openssh.enable = true;
       programs.mosh.enable = true;
-      
-      system.stateVersion = "22.05";
     };
 }
