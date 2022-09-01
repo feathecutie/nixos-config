@@ -22,6 +22,7 @@
             modules = [
               home-manager.nixosModules.default
               (customModule ./hosts/laptop)
+              (customModule ./hosts/shared)
             ];
             specialArgs = { inherit inputs; };
           };
@@ -30,6 +31,7 @@
             modules = [
               home-manager.nixosModules.default
               (customModule ./hosts/server)
+              (customModule ./hosts/shared)
             ];
             specialArgs = { inherit inputs; };
           };

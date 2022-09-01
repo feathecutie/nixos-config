@@ -36,7 +36,9 @@ The configuration also currently sets passwords for the existing users that I wo
 
 `hosts/` contains top-level directories representing the different hosts this flake is designed to be used on.
 
-Currently, `hosts/laptop/` generates a NixOS module for the `laptop` nixosConfiguration and, as soon as I port it over, `hosts/server/` generates a NixOS module for the (not yet existing) `server` nixosConfiguration.
+Currently, `hosts/laptop/` generates a NixOS module for the `laptop` nixosConfiguration and `hosts/server/` generates a NixOS module for the `server` nixosConfiguration.
+
+`hosts/shared/` contains modules applying to both configurations, and is imported by both.
 
 Each of these directories contains arbitrarily nested nix files where each nix file contains an attribute set with any of the following attributes:
 
