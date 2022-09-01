@@ -28,7 +28,7 @@ The configuration also currently sets passwords for the existing users that I wo
 | --- | --- |
 | `flake.nix` | Describes dependencies on other flakes ("inputs") and exposes structered configuration ("outputs"); this is essentially what makes this repository a "flake" |
 | `flake.lock` | Lock file enforcing specific versions/commits of all flake inputs |
-| `lib/` | Collection of nix functions interally used in this crate; currently not exposed via an output |
+| `lib/` | Collection of nix functions interally used in this crate; exposed via the `lib` flake output |
 | `hosts/` | Host-specific collections of nix files that get parsed into a single NixOS module per host by the `customModule` function in `lib/customModule.nix` |
 | `README.md` | ..self explanatory |
 

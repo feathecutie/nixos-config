@@ -9,11 +9,12 @@
     , home-manager
     , ...
     } @ inputs: {
+      lib = import ./lib { inherit (nixpkgs) lib; };
       nixosConfigurations =
         let
+          inherit (self.lib) customModule;
           inherit (nixpkgs.lib) nixosSystem;
           inherit (flake-utils.lib) system;
-          inherit (import ./lib { inherit (nixpkgs) lib; }) customModule;
         in
         {
           laptop = nixosSystem {
