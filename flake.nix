@@ -36,7 +36,13 @@
             specialArgs = { inherit inputs; };
           };
         };
-    };
+    } // flake-utils.lib.eachDefaultSystem (system:
+    let
+      pkgs = nixpkgs.legacyPackages."${system}";
+    in
+    {
+      formatter = pkgs.nixpkgs-fmt;
+    });
 
   inputs =
     {
