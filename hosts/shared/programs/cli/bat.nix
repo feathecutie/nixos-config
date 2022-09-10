@@ -1,3 +1,3 @@
 {
-  users.fea.programs.bat.enable = true;  
+  users.fea.programs.bat.enable = true;
 }
