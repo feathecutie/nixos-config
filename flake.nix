@@ -38,7 +38,7 @@
         };
     } // flake-utils.lib.eachDefaultSystem (system:
     let
-      pkgs = nixpkgs.legacyPackages."${system}";
+      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       formatter = pkgs.nixpkgs-fmt;
