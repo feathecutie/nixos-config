@@ -11,6 +11,18 @@
         '';
         configFile.text = ''
           source ~/.cache/starship/init.nu
+          let-env config = {
+            hooks: {
+              pre_prompt: [{
+                code: "
+                  let direnv = (direnv export json | from json)
+                  let direnv = if ($direnv | length) == 1 { $direnv } else { {} }
+                  $direnv | load-env
+                "
+              }]
+            }
+          }
+          alias create-flake-envrc = ("use flake" | save .envrc; direnv allow)
           ${pkgs.ponysay}/bin/ponysay --ponyonly
         '';
       };
