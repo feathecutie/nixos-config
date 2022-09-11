@@ -7,7 +7,7 @@
       programs.helix = {
         enable = true;
         package = inputs.helix.packages.${pkgs.system}.default;
-        settings.theme = "autumn";
+        settings.theme = "everforest_dark";
       };
     };
 }
