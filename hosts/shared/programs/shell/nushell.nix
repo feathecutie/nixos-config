@@ -12,6 +12,7 @@
         configFile.text = ''
           source ~/.cache/starship/init.nu
           let-env config = {
+            show_banner: false
             hooks: {
               pre_prompt: [{
                 code: "
