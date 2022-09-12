@@ -1,5 +1,11 @@
 {
-  users.fea.programs.firefox = {
-    enable = true;
-  };
+  users.fea =
+    { pkgs
+    , ...
+    }: {
+      programs.firefox = {
+        enable = true;
+        package = pkgs.firefox-wayland;
+      };
+    };
 }
