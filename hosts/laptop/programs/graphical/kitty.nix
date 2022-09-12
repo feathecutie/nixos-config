@@ -10,6 +10,9 @@
           package = pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; };
           size = 12;
         };
+        settings = {
+          background_opacity = "0.8";
+        };
       };
     };
 }
