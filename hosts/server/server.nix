@@ -6,16 +6,16 @@
     }: {
       fileSystems = {
         "/" = {
-          device = none;
+          device = "none";
           fsType = "tmpfs";
           options = [ "defaults" "size=2G" "mode=755" ];
         };
         "/boot" = {
-          device = "/dev/disk/by-label/EFI";
-          fsType = "fvat";
+          device = "/dev/disk/by-partlabel/EFI";
+          fsType = "vfat";
         };
         "/nix" = {
-          device = "/dev/disk/by-label/nixos";
+          device = "/dev/disk/by-partlabel/nixos";
           fsType = "btrfs";
           options = [ "subvol=nix" ];
         };
