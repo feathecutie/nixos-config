@@ -20,7 +20,6 @@
           laptop = nixosSystem {
             system = system.x86_64-linux;
             modules = [
-              home-manager.nixosModules.default
               (customModule ./hosts/laptop)
               (customModule ./hosts/shared)
             ];
@@ -29,7 +28,6 @@
           server = nixosSystem {
             system = system.x86_64-linux;
             modules = [
-              home-manager.nixosModules.default
               (customModule ./hosts/server)
               (customModule ./hosts/shared)
             ];
