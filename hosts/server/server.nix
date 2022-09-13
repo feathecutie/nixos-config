@@ -19,6 +19,12 @@
           fsType = "btrfs";
           options = [ "subvol=nix" ];
         };
+        "/persistent" = {
+          device = "/dev/disk/by-partlabel/nixos";
+          fsType = "btrfs";
+          options = [ "subvol=persistent" ];
+          neededForBoot = true;
+        };
       };
 
       boot = {
