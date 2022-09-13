@@ -4,9 +4,21 @@
     { pkgs
     , ...
     }: {
-      fileSystems."/" = {
-        device = "/dev/disk/by-uuid/299dc3f3-3ff6-4ca4-9fff-22e8fa3658a5";
-        fsType = "ext4";
+      fileSystems = {
+        "/" = {
+          device = none;
+          fsType = "tmpfs";
+          options = [ "defaults" "size=2G" "mode=755" ];
+        };
+        "/boot" = {
+          device = "/dev/disk/by-label/EFI";
+          fsType = "fvat";
+        };
+        "/nix" = {
+          device = "/dev/disk/by-label/nixos";
+          fsType = "btrfs";
+          options = [ "subvol=nix" ];
+        };
       };
 
       boot = {
@@ -20,10 +32,13 @@
           "sr_mod"
         ];
         kernelModules = [ "kvm-intel" ];
-        loader.grub = {
-          enable = true;
-          device = "/dev/sda";
-          configurationLimit = 20;
+        loader = {
+          systemd-boot = {
+            enable = true;
+            consoleMode = "max";
+            configurationLimit = 20;
+          };
+          efi.canTouchEfiVariables = true;
         };
       };
 
