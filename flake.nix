@@ -57,16 +57,5 @@
         inputs.nixpkgs.follows = "nixpkgs";
         inputs.utils.follows = "flake-utils";
       };
-      helix = {
-        url = "github:helix-editor/helix";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.rust-overlay.follows = "rust-overlay";
-      };
-      # NOTE: This is a (hopefully) temporary fix to make helix's rust-overlay's flake-utils follow mine
-      rust-overlay = {
-        url = "github:oxalica/rust-overlay";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.flake-utils.follows = "flake-utils";
-      };
     };
 }
