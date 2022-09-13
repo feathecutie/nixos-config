@@ -27,7 +27,7 @@
           alias create-flake-envrc = ("use flake" | save .envrc; direnv allow)
           ${pkgs.lib.optionalString (builtins.elem pkgs.zellij config.home.packages) ''
             # Only print ponies if not in a zellij session, as that would get too cluttered
-            if (not (zellij list-sessions | lines | any? { |session| $session =~ "(current)" })) {
+            if (not (zellij list-sessions | lines | any { |session| $session =~ "(current)" })) {
               ${pkgs.ponysay}/bin/ponysay --ponyonly
             }
           '' }
