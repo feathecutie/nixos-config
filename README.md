@@ -1,3 +1,5 @@
+# NOTE: This is a **very** outdated version of my flake, the current version exists at https://codeberg.org/feathecutie/flake/
+
 # Fea's NixOS Configuration Flake
 
 This is the flake I use for configuring my main NixOS system on my laptop and hopefully soon my server as well.
